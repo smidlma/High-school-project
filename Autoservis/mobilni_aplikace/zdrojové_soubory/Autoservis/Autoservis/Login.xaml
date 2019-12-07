@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Autoservis.Login"
+             BackgroundColor="#03a9f4"
+             >
+    <ContentPage.Content>
+
+
+        <StackLayout Orientation="Vertical" 
+                         VerticalOptions="Center" 
+                         HorizontalOptions="Center"
+                         WidthRequest="300">
+            <Image Source="baseline_directions_car_white_48.png"></Image>
+            <Label Text="Můj Autoservis" 
+                       TextColor="White"
+                       Font="40"
+                       HorizontalTextAlignment="Center"
+                      >
+            </Label>
+            <StackLayout Orientation="Vertical"
+                         Padding="0,50,0,0"
+                         Margin="0,0,0,100">
+                <Entry x:Name="email" 
+                       Keyboard="Email" 
+                       Placeholder="E-mail"
+                        HeightRequest="40">
+                </Entry>
+                <Entry x:Name="password" 
+                       IsPassword="True" 
+                       Placeholder="Password"
+                       HeightRequest="40">
+                </Entry>
+            </StackLayout>
+            <ActivityIndicator Margin="0,-30,0,0" Color="White" IsVisible="False" x:Name="activityIndicator"></ActivityIndicator>
+            <Button Text="Login" 
+                    Clicked="Button_ClickedAsync"
+                    BackgroundColor="White"
+                    >
+            </Button>
+        </StackLayout>
+
+       
+    </ContentPage.Content>
+</ContentPage>

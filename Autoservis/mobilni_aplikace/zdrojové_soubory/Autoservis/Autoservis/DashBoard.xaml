@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Autoservis.DashBoard"
+             Title="DashBoard"
+            >
+
+    <ContentPage.Content>
+
+        <Grid>
+            <StackLayout x:Name="errorListView" 
+                             Orientation="Vertical" 
+                             IsVisible="False" 
+                              Grid.Row="0"  Grid.Column="0"
+                             >
+                <Image Source="baseline_wifi_off_black_48.png" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center">
+                </Image>
+            </StackLayout>
+
+            <StackLayout x:Name="hideListView" 
+                             Orientation="Vertical" 
+                             IsVisible="False" 
+                              Grid.Row="0"  Grid.Column="0"
+                             >
+                <Image Source="baseline_sentiment_very_satisfied_black_48.png" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center">
+                </Image>
+                <Label FontSize="Large" Text="Všechny vozy jsou v pořádku u Vás doma" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center">
+                </Label>
+            </StackLayout>
+
+            <ListView x:Name="orderListView"
+                          HasUnevenRows="True"
+                          SeparatorVisibility="None"
+                           Grid.Row="0"  Grid.Column="0"
+                          ItemSelected="OrderListView_ItemSelected"
+                          Refreshing="OrderListView_Refreshing"
+                          IsPullToRefreshEnabled="True">
+                <ListView.Header>
+                    <StackLayout Padding="5,5,0,5" Orientation="Vertical">
+                        <Label Text="Aktuální servis" 
+                                FontSize="Large">
+                        </Label>
+                        <BoxView BackgroundColor="#0277bd" 
+                                     HeightRequest="3" 
+                                     WidthRequest="100" 
+                                     HorizontalOptions="StartAndExpand">
+
+                        </BoxView>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame HasShadow="True" x:Name="frameOrder"
+                               Margin="10,5,10,5"
+                               CornerRadius="2"
+                               BorderColor="#03a9f4">
+                                <StackLayout
+                                        Orientation="Horizontal">
+                                    <Image HeightRequest="60" 
+                                               WidthRequest="60" 
+                                               Source="baseline_directions_car_black_48.png"
+                                               VerticalOptions="Center">
+
+                                    </Image>
+                                    <StackLayout Orientation="Vertical" 
+                                                 HorizontalOptions="StartAndExpand"
+                                                 Padding="30,0,0,0">
+                                        <Label FontSize="Small" Text="{Binding Datum, StringFormat='Datum: {0:dd/MM/yyyy}'}" ></Label>
+                                        <BoxView Color="Gray" HeightRequest="1"></BoxView>
+                                        <Label FontSize="Small" Text="{Binding Auto , StringFormat='Vozidlo: {0}'}"></Label>
+                                        <BoxView Color="Gray" HeightRequest="1"></BoxView>
+                                        <Label FontSize="Small" Text="{Binding Stav , StringFormat='Stav: {0}'}"></Label>
+                                        <BoxView Color="Gray" HeightRequest="1"></BoxView>
+                                    </StackLayout>
+                                    <AbsoluteLayout Margin="0,-20,-20,-20">
+                                        <BoxView BackgroundColor="#03a9f4"  
+                                                 AbsoluteLayout.LayoutBounds="1,1,50,1" 
+                                                 AbsoluteLayout.LayoutFlags="PositionProportional,HeightProportional">
+                                        </BoxView>
+                                    </AbsoluteLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ActivityIndicator x:Name="activityIndicator" 
+                                    Grid.Row="0"  Grid.Column="0"
+                                   Color="Blue">
+            </ActivityIndicator>
+            <Button  Image="baseline_add_white_48.png"
+                     Grid.Row="0" 
+                     Grid.Column="0" 
+                     BackgroundColor="#0277bd"
+                     Clicked="Button_Clicked"
+                     VerticalOptions="End" 
+                     HorizontalOptions="End" 
+                     CornerRadius="100"
+                     WidthRequest="70" 
+                     HeightRequest="70"
+                     Margin="0,0,35,35">
+
+            </Button>
+
+
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

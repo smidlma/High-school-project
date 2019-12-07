@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Autoservis"
+             x:Class="Autoservis.Zk">
+    <ContentPage.Content>
+        <StackLayout>
+            <ActivityIndicator x:Name="activity"
+                               Color="Red"
+                              
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center">
+            </ActivityIndicator>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

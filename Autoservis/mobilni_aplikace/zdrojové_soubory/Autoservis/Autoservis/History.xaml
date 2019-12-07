@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Autoservis.History"
+             Title="Historie"
+             >
+    <ContentPage.Content>
+
+        <AbsoluteLayout>
+
+
+
+            <ActivityIndicator x:Name="activityIndicator"
+                                   AbsoluteLayout.LayoutBounds="0.5,0.5,70,70"
+                                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                                   Color="Blue"
+                                   >
+            </ActivityIndicator>
+
+
+
+
+
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         Orientation="Vertical">
+
+                <!--Error View-->
+                <StackLayout x:Name="errorListView" 
+                             Orientation="Vertical" 
+                             IsVisible="False" 
+                              VerticalOptions="Center" 
+                           HorizontalOptions="Center">
+                    <Image Source="baseline_wifi_off_black_48.png"></Image>
+
+                </StackLayout>
+
+                <!--SearchBar-->
+                <SearchBar Placeholder="Vyhledat..." 
+                       TextChanged="SearchBar_TextChanged"
+                       x:Name="searchBar">
+                </SearchBar>
+
+                <!--ListView-->
+                <ListView x:Name="historyListView" 
+                      ItemSelected="HistoryListView_ItemSelected" 
+                      SeparatorVisibility="None" 
+                      HasUnevenRows="True"
+                      IsPullToRefreshEnabled="True"
+                      Refreshing="HistoryListView_Refreshing">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame HasShadow="True"
+                               Margin="10,5,10,5"
+                               CornerRadius="0"
+                               BorderColor="#03a9f4">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="baseline_build_black_48pt.png"></Image>
+                                        <StackLayout Orientation="Vertical" 
+                                                 HorizontalOptions="StartAndExpand"
+                                                 Padding="30,0,0,0">
+                                            <Label FontSize="Small" Text="{Binding Datum, StringFormat='Datum: {0:dd/MM/yyyy}'}" ></Label>
+                                            <BoxView Color="Gray" HeightRequest="1"></BoxView>
+                                            <Label FontSize="Small" Text="{Binding Auto , StringFormat='Vozidlo: {0}'}"></Label>
+                                            <BoxView Color="Gray" HeightRequest="1"></BoxView>
+                                            <Label FontSize="Small" Text="{Binding Cena , StringFormat='Celková cena: {0} Kč'}"></Label>
+                                            <BoxView Color="Gray" HeightRequest="1"></BoxView>
+                                        </StackLayout>
+                                        <AbsoluteLayout Margin="0,-20,-20,-20">
+                                            <BoxView BackgroundColor="#03a9f4"  
+                                                 AbsoluteLayout.LayoutBounds="1,1,50,1" 
+                                                 AbsoluteLayout.LayoutFlags="PositionProportional,HeightProportional">
+                                            </BoxView>
+                                        </AbsoluteLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+
+
+
+
+
+
+
+
+            <!--<SearchBar Placeholder="Vyhledat..." 
+                       TextChanged="SearchBar_TextChanged"
+                       x:Name="searchBar"
+                       AbsoluteLayout.LayoutBounds="0,0,1,0.2" 
+                        AbsoluteLayout.LayoutFlags="All">
+                
+            </SearchBar>
+            <ListView x:Name="historyListView" 
+                      ItemSelected="HistoryListView_ItemSelected" 
+                      SeparatorVisibility="None" 
+                      HasUnevenRows="True"
+                      IsPullToRefreshEnabled="True"
+                      Refreshing="HistoryListView_Refreshing"
+                      AbsoluteLayout.LayoutBounds="0,0.2,1,1" 
+                                  AbsoluteLayout.LayoutFlags="All">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame HasShadow="True"
+                               Margin="10,5,10,5"
+                               CornerRadius="0"
+                               BorderColor="#03a9f4">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="wrench.png"></Image>
+                                    <StackLayout Orientation="Vertical" 
+                                                 HorizontalOptions="StartAndExpand"
+                                                 Padding="50,0,0,0">
+                                        <Label Text="{Binding Datum, StringFormat='Datum: {0:dd/MM/yyyy}'}" ></Label>
+                                        <Label Text="{Binding Auto , StringFormat='Vozidlo: {0}'}"></Label>
+                                        <Label Text="{Binding Cena , StringFormat='Celková cena: {0} Kč'}"></Label>
+                                    </StackLayout>
+                                    <AbsoluteLayout Margin="0,-20,-20,-20">
+                                        <BoxView BackgroundColor="#03a9f4"  
+                                                 AbsoluteLayout.LayoutBounds="1,1,50,1" 
+                                                 AbsoluteLayout.LayoutFlags="PositionProportional,HeightProportional">
+                                        </BoxView>
+                                    </AbsoluteLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

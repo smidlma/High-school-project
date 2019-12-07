@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Autoservis.Profile"
+             Title="Profil">
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout>
+                <TableView Intent="Form" x:Name="userInfo">
+                    <TableRoot>
+                        <TableSection Title="Informace">
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
+                                    <Label Text="Uživatel" 
+                                       TextColor="Black"
+                                       VerticalOptions="Center"></Label>
+                                    <Label Text="{Binding User}" 
+                                       TextColor="Gray" 
+                                       HorizontalOptions="EndAndExpand"
+                                       VerticalOptions="Center">
+
+                                    </Label>
+                                </StackLayout>
+                            </ViewCell>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
+                                    <Label Text="Email" TextColor="Black" 
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="Center">
+
+                                    </Label>
+                                    <Label Text="{Binding Email}"
+                                       TextColor="Gray"
+                                       VerticalOptions="Center">
+                                    </Label>
+                                </StackLayout>
+                            </ViewCell>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
+                                    <Label Text="Mobil" TextColor="Black" 
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="Center">
+
+                                    </Label>
+                                    <Label Text="{Binding Phone}"
+                                       TextColor="Gray"
+                                       VerticalOptions="Center">
+                                    </Label>
+                                </StackLayout>
+                            </ViewCell>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="20,0,20,0">
+                                    <Label Text="Adresa" TextColor="Black" 
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="Center">
+
+                                    </Label>
+                                    <Label Text="{Binding Adress}"
+                                       TextColor="Gray"
+                                       VerticalOptions="Center">
+                                    </Label>
+                                </StackLayout>
+                            </ViewCell>
+
+
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Button Text="Upravit Profil" HorizontalOptions="Center" Clicked="Button_Clicked_1"></Button>
+                                </StackLayout>
+                            </ViewCell>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Button Text="Změnit Heslo" HorizontalOptions="Center" Clicked="Button_Clicked_2"></Button>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell>
+                                <StackLayout>
+
+                                    <Button Text="Zpět" 
+                                            Clicked="Button_Clicked"
+                                            BackgroundColor="#03a9f4"
+                                            TextColor="White"
+                                            BorderColor="#0277bd"
+                                            BorderWidth="2"
+                                            VerticalOptions="Center">
+                                    </Button>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+
+            </StackLayout>
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

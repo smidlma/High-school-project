@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:date="clr-namespace:Autoservis.Class"
+             x:Class="Autoservis.OrderService"
+             Title="Objednat Servis"
+             BackgroundColor="#03a9f4">
+
+
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" 
+                         VerticalOptions="Center" 
+                         HorizontalOptions="Center"
+                         WidthRequest="300">
+            <Image Source="baseline_create_white_48pt_3x.png"></Image>
+                        <StackLayout Orientation="Vertical"
+                         Padding="0,50,0,20"
+                         Margin="0,0,0,100">
+
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Datum: "></Label>
+                    <DatePicker x:Name="datePicker"
+                                Date="{x:Static date:DateTimeHelper.Tomorrow}"
+                                MinimumDate="{x:Static date:DateTimeHelper.Tomorrow}"
+                                DateSelected="DatePicker_DateSelected">
+                    </DatePicker>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Důvod: "></Label>
+                    <Entry x:Name="zavada" Placeholder="např.: garanční prohlídka"></Entry>
+                </StackLayout>
+
+                <StackLayout Padding="0,10,0,0">
+                    <Label Text="Vozidlo: "></Label>
+                    <Picker x:Name="vozidloPicker" Title="Vyber vozidlo" 
+                            SelectedIndexChanged="VozidloPicker_SelectedIndexChanged">
+
+                    </Picker>
+                </StackLayout>
+
+                <Button Text="Objednat" 
+                    Clicked="Button_Clicked"
+                    BackgroundColor="White"
+                    >
+                </Button>
+            </StackLayout>
+
+           
+        </StackLayout>
+        <!--<AbsoluteLayout>
+            <Image Source="baseline_create_black_48.png"
+                   AbsoluteLayout.LayoutBounds="0.5,0,144,144"
+                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                   Margin="0,30,0,0">
+            </Image>
+
+            <StackLayout AbsoluteLayout.LayoutBounds="0.5,0.5,0.6,0.3" 
+                         AbsoluteLayout.LayoutFlags="All"
+                         >
+
+
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Datum: "></Label>
+                    <DatePicker x:Name="datePicker"
+                                Date="{x:Static date:DateTimeHelper.Tomorrow}"
+                                MinimumDate="{x:Static date:DateTimeHelper.Tomorrow}"
+                                DateSelected="DatePicker_DateSelected">
+                    </DatePicker>
+                </StackLayout>
+
+                <StackLayout Padding="0,20,0,20">
+                    <Label Text="Vozidlo: "></Label>
+                    <Picker x:Name="vozidloPicker" Title="Vyber vozidlo" 
+                            SelectedIndexChanged="VozidloPicker_SelectedIndexChanged">
+
+                    </Picker>
+                </StackLayout>
+
+                -->
+        <!--<Frame Padding="2"
+                       BorderColor="#03a9f4"
+                       CornerRadius="100">-->
+        <!--
+                    <Button Text="Objednat"
+                            BackgroundColor="#0277bd" 
+                            TextColor="White"
+                            BorderColor="#03a9f4"
+                            BorderWidth="2"
+                            Clicked="Button_Clicked">
+                    </Button>
+                -->
+        <!--</Frame>-->
+        <!--
+
+            </StackLayout>
+        </AbsoluteLayout>-->
+    </ContentPage.Content>
+</ContentPage>
